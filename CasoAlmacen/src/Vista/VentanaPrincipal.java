@@ -55,6 +55,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jTextPane1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jTextPane1.setText("Sistema Gestor de Inventario: Organización y productividad para tu negocio.");
         jTextPane1.setToolTipText("");
+        jTextPane1.setAutoscrolls(false);
+        jTextPane1.setFocusCycleRoot(false);
+        jTextPane1.setFocusable(false);
+        jTextPane1.setRequestFocusEnabled(false);
+        jTextPane1.setVerifyInputWhenFocusTarget(false);
         jScrollPane1.setViewportView(jTextPane1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -117,7 +122,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         con.establecerConexion();
         if (con != null) {
             // Conexión exitosa → abrir nueva ventana
-            CRUD_Invetario ventana = new CRUD_Invetario(); // o el nombre que le hayas dado
+            InventarioAcciones ventana = new InventarioAcciones(); // o el nombre que le hayas dado
             ventana.setVisible(true);
             this.dispose(); // Cierra la ventana actual (Login)
         } else {

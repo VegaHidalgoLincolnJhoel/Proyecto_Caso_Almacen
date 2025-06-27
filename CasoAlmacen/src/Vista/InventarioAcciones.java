@@ -13,12 +13,12 @@ import javax.swing.text.StyledDocument;
  *
  * @author linco
  */
-public class CRUD_Invetario extends javax.swing.JFrame {
+public class InventarioAcciones extends javax.swing.JFrame {
 
     /**
      * Creates new form VisorInventario
      */
-    public CRUD_Invetario() {
+    public InventarioAcciones() {
         initComponents();
         centrarTextoEnJTextPane(jTextPane1, "¿Qué acción deseas realizar? 🤔🤔");
     }
@@ -65,8 +65,18 @@ public class CRUD_Invetario extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextPane1);
 
         jButton1.setText("Insertar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Visualizar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Actualizar");
 
@@ -150,6 +160,18 @@ public class CRUD_Invetario extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        InventarioInsertar ventana = new InventarioInsertar();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        InventarioVisualizar ventana = new InventarioVisualizar();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void centrarTextoEnJTextPane(JTextPane pane, String texto) {
     // Centrado horizontal
     StyledDocument doc = pane.getStyledDocument();
@@ -187,21 +209,23 @@ public class CRUD_Invetario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CRUD_Invetario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventarioAcciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CRUD_Invetario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventarioAcciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CRUD_Invetario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventarioAcciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CRUD_Invetario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventarioAcciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CRUD_Invetario().setVisible(true);
+                new InventarioAcciones().setVisible(true);
             }
         });
     }

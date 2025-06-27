@@ -1,4 +1,4 @@
-package Gestor;
+package Controlador;
 import Modelo.Login;
 import java.util.ArrayList;
 import java.util.List;
