@@ -48,7 +48,11 @@ public class InventarioAcciones extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(204, 255, 255));
+
         jTextPane1.setEditable(false);
+        jTextPane1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jTextPane1.setText("Que accion desea realizar? 🤔🤔");
         jTextPane1.setFocusable(false);
         jTextPane1.setRequestFocusEnabled(false);
@@ -79,8 +83,18 @@ public class InventarioAcciones extends javax.swing.JFrame {
         });
 
         jButton3.setText("Actualizar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Eliminar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Salir");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +185,18 @@ public class InventarioAcciones extends javax.swing.JFrame {
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        InventarioEliminar ventana = new InventarioEliminar();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        InventarioActualizar ventana = new InventarioActualizar();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void centrarTextoEnJTextPane(JTextPane pane, String texto) {
     // Centrado horizontal
