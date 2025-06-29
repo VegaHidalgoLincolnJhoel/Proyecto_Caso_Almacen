@@ -18,7 +18,7 @@ public class InventarioVisualizar extends javax.swing.JFrame {
     public InventarioVisualizar() {
         initComponents();
         VerTbRopa tb = new VerTbRopa();
-        tb.mostrarTbRopa(TablaMostrar);
+        tb.mostrarTabla(TablaMostrar);
     }
 
     /**
