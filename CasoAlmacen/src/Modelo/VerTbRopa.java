@@ -58,16 +58,17 @@ public class VerTbRopa {
     }
 
     public void SeleccionarElemento(JTable paramTablaMostrar, JTextField paramID, JTextField paramNombre,
-             JTextField paramStock, JTextField paramPrecioUnidad, JTextField paramCategoria) {
+            JTextField paramStock, JTextField paramPrecioUnidad, JTextField paramCategoria) {
         try {
-            int fila =paramTablaMostrar.getSelectedRow();
-            
-            if(fila>=0){
-                paramID.setText(paramTablaMostrar.getValueAt(fila,0).toString());
-                paramNombre.setText(paramTablaMostrar.getValueAt(fila,1).toString());
-                paramStock.setText(paramTablaMostrar.getValueAt(fila,2).toString());
-                paramPrecioUnidad.setText(paramTablaMostrar.getValueAt(fila,3).toString());
-                paramCategoria.setText(paramTablaMostrar.getValueAt(fila,4).toString());
+            int fila = paramTablaMostrar.getSelectedRow();
+
+            if (fila >= 0) {
+                paramID.setText(paramTablaMostrar.getValueAt(fila, 0).toString());
+                paramNombre.setText(paramTablaMostrar.getValueAt(fila, 1).toString());
+                paramStock.setText(paramTablaMostrar.getValueAt(fila, 2).toString());
+                paramPrecioUnidad.setText(paramTablaMostrar.getValueAt(fila, 3).toString());
+                paramCategoria.setText(paramTablaMostrar.getValueAt(fila, 4).toString());
+                
             }
         } catch (Exception e) {
         }
