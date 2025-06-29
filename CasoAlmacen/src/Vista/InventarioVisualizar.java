@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Modelo.VerTbRopa;
+
 /**
  *
  * @author linco
@@ -15,6 +17,8 @@ public class InventarioVisualizar extends javax.swing.JFrame {
      */
     public InventarioVisualizar() {
         initComponents();
+        VerTbRopa tb = new VerTbRopa();
+        tb.mostrarTbRopa(TablaMostrar);
     }
 
     /**
@@ -39,7 +43,7 @@ public class InventarioVisualizar extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaMostrar = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,24 +85,34 @@ public class InventarioVisualizar extends javax.swing.JFrame {
             }
         });
 
+        jTextField3.setEditable(false);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaMostrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "ID", "Columna 1", "Columna 2", "Columna 3"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        TablaMostrar.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                TablaMostrarAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(TablaMostrar);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -211,6 +225,10 @@ public class InventarioVisualizar extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void TablaMostrarAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_TablaMostrarAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TablaMostrarAncestorAdded
+
     /**
      * @param args the command line arguments
      */
@@ -248,6 +266,7 @@ public class InventarioVisualizar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablaMostrar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -257,7 +276,6 @@ public class InventarioVisualizar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
