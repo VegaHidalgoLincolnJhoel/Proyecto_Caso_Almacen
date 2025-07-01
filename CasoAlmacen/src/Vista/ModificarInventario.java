@@ -5,11 +5,13 @@
 package Vista;
 
 import Modelo.CRUD_Inventario;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author linco
  */
+
 public class ModificarInventario extends javax.swing.JFrame {
 
     /**
@@ -17,7 +19,6 @@ public class ModificarInventario extends javax.swing.JFrame {
      */
     public ModificarInventario() {
         initComponents();
-        
     }
 
     /**
@@ -70,18 +71,24 @@ public class ModificarInventario extends javax.swing.JFrame {
         jLabelNombre.setText("Nombre");
         jLabelNombre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jTextStock.setEditable(false);
+        jTextStock.setEnabled(false);
         jTextStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextStockActionPerformed(evt);
             }
         });
 
+        jTextNombre.setEditable(false);
+        jTextNombre.setEnabled(false);
         jTextNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextNombreActionPerformed(evt);
             }
         });
 
+        jTextPrecioUnid.setEditable(false);
+        jTextPrecioUnid.setEnabled(false);
         jTextPrecioUnid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextPrecioUnidActionPerformed(evt);
@@ -96,17 +103,23 @@ public class ModificarInventario extends javax.swing.JFrame {
         jLabelPriceUnidad.setText("Precio/Unidad");
         jLabelPriceUnidad.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jTextCategoria.setEditable(false);
+        jTextCategoria.setEnabled(false);
+
         jLabelCategoria.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelCategoria.setText("Categoria");
         jLabelCategoria.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jTextID.setEditable(false);
+        jTextID.setEnabled(false);
         jTextID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextIDActionPerformed(evt);
             }
         });
 
-        jComboBoxCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar Tabla--", "Ropa", "Deporte", "Tecnologia", "Alimentos" }));
+        jComboBoxCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar Tabla--", "Ropa", "Alimentos", "Deporte", "Tecnologia", "Limpieza" }));
+        jComboBoxCategorias.setToolTipText("Selecciona una categoría para mostrar su tabla");
         jComboBoxCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCategoriasActionPerformed(evt);
@@ -124,6 +137,7 @@ public class ModificarInventario extends javax.swing.JFrame {
 
             }
         ));
+        TablaMostrar.setEnabled(false);
         TablaMostrar.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 TablaMostrarAncestorAdded(evt);
@@ -148,6 +162,11 @@ public class ModificarInventario extends javax.swing.JFrame {
         });
 
         jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
 
         jButtonActualizar.setText("Actualizar");
         jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -208,34 +227,28 @@ public class ModificarInventario extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jComboBoxCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(148, 148, 148)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(30, 30, 30)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(40, 40, 40)
-                                                .addComponent(jLabelID))
-                                            .addComponent(jLabelNombre)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(50, 50, 50)
-                                        .addComponent(jLabelStock))
+                                .addGap(144, 144, 144)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelNombre)
+                                    .addComponent(jLabelID)
+                                    .addComponent(jLabelStock)
                                     .addComponent(jLabelPriceUnidad))
-                                .addGap(14, 14, 14)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextPrecioUnid, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
+                                .addGap(171, 171, 171)
                                 .addComponent(jLabelCategoria)
-                                .addGap(11, 11, 11)
+                                .addGap(18, 18, 18)
                                 .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(29, 29, 29)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,34 +257,30 @@ public class ModificarInventario extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jLabelNombre)))
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabelStock))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(jComboBoxCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelPriceUnidad))
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jComboBoxCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelID))
                         .addGap(8, 8, 8)
-                        .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelNombre))
                         .addGap(8, 8, 8)
-                        .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelStock))
                         .addGap(8, 8, 8)
-                        .addComponent(jTextPrecioUnid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextPrecioUnid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelPriceUnidad))))
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelCategoria)
-                    .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCategoria))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(75, Short.MAX_VALUE))
@@ -313,12 +322,44 @@ public class ModificarInventario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextIDActionPerformed
 
     private void jComboBoxCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriasActionPerformed
-        // TODO add your handling code here:
+        String opcionSeleccionada = jComboBoxCategorias.getSelectedItem().toString();
+        CRUD_Inventario tb = new CRUD_Inventario();
+        switch (opcionSeleccionada) {
+            case "--Seleccionar Tabla--":
+                JOptionPane.showMessageDialog(null, "Por favor selecciona una categoría válida");
+                break;
+            case "Ropa":
+                tb.mostrarTablaRopa(TablaMostrar);
+                break;
+            case "Alimentos":
+                tb.mostrarTablaAlimentos(TablaMostrar);
+                break;
+            case "Deporte":
+                tb.mostrarTablaDeporte(TablaMostrar);
+                break;
+            case "Tecnologia":
+                tb.mostrarTablaElectronico(TablaMostrar);
+                break;
+            case "Limpieza":
+                tb.mostrarTablaLimpieza(TablaMostrar);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Categoría no reconocida");
+        }
     }//GEN-LAST:event_jComboBoxCategoriasActionPerformed
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-        CRUD_Inventario tb = new CRUD_Inventario();
-        tb.mostrarTabla(TablaMostrar);
+        TablaMostrar.setEnabled(true);
+        jTextID.setEditable(true);
+        jTextID.setEnabled(true);
+        jTextNombre.setEditable(true);
+        jTextNombre.setEnabled(true);
+        jTextStock.setEditable(true);
+        jTextStock.setEnabled(true);
+        jTextPrecioUnid.setEditable(true);
+        jTextPrecioUnid.setEnabled(true);
+        jTextCategoria.setEditable(true);
+        jTextCategoria.setEnabled(true);
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
@@ -329,43 +370,85 @@ public class ModificarInventario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonExportarActionPerformed
 
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        CRUD_Inventario tb = new CRUD_Inventario();
+
+        String tablaSeleccionada = jComboBoxCategorias.getSelectedItem().toString();
+
+        if (tablaSeleccionada.equals("--Seleccionar Tabla--")) {
+            JOptionPane.showMessageDialog(null, "⚠️ Selecciona una tabla válida primero.");
+            return;
+        }
+
+        tb.actualizarRegistro(tablaSeleccionada, jTextID, jTextNombre, jTextStock, jTextPrecioUnid, jTextCategoria);
+
+        // Refrescar tabla según categoría
+        switch (tablaSeleccionada) {
+            case "Ropa":
+                tb.mostrarTablaRopa(TablaMostrar);
+                break;
+            case "Alimentos":
+                tb.mostrarTablaAlimentos(TablaMostrar);
+                break;
+            case "Deporte":
+                tb.mostrarTablaDeporte(TablaMostrar);
+                break;
+            case "Tecnologia":
+                tb.mostrarTablaElectronico(TablaMostrar);
+                break;
+            case "Limpieza":
+                tb.mostrarTablaLimpieza(TablaMostrar);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Categoría no reconocida");
+        }
+
+        // Desactivar campos
+        jTextID.setEditable(false);
+        jTextNombre.setEditable(false);
+        jTextStock.setEditable(false);
+        jTextPrecioUnid.setEditable(false);
+        jTextCategoria.setEditable(false);
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+     */
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificarInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificarInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificarInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificarInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModificarInventario().setVisible(true);
-            }
-        });
+    } catch (ClassNotFoundException ex) {
+        java.util.logging.Logger.getLogger(ModificarInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+        java.util.logging.Logger.getLogger(ModificarInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+        java.util.logging.Logger.getLogger(ModificarInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(ModificarInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+    //</editor-fold>
+    //</editor-fold>
+    //</editor-fold>
+
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        @Override
+        public void run() {
+            new ModificarInventario().setVisible(true);
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaMostrar;
