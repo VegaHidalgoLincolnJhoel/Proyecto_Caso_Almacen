@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author linco
  */
-public class VerTbRopa {
+public class CRUD_Inventario {
 
     public void mostrarTabla(JTable paramTablaMostrar) {
         Conexion link = new Conexion();
@@ -68,9 +68,11 @@ public class VerTbRopa {
                 paramStock.setText(paramTablaMostrar.getValueAt(fila, 2).toString());
                 paramPrecioUnidad.setText(paramTablaMostrar.getValueAt(fila, 3).toString());
                 paramCategoria.setText(paramTablaMostrar.getValueAt(fila, 4).toString());
-                
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo sleccionar los registros");
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de seleccion \n" + "Error: " + e.toString());
         }
     }
 }

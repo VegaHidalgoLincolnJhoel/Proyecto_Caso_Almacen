@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import java.sql.Connection;
@@ -11,25 +7,37 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
 
-    Connection conectar = null;
-    String usuario = "admin";
-    String contraseña = "root2";
-    String bd = "Inventario";
-    String ip = "localhost";
-    String puerto = "1433";
+    private static Connection conectar = null;
+    private static boolean yaConectado = false;
+
+    private final String usuario = "admin";
+    private final String contraseña = "root2";
+    private final String bd = "Inventario";
+    private final String ip = "localhost";
+    private final String puerto = "1433";
 
     public Connection establecerConexion() {
+        if (conectar != null) {
+            return conectar;
+        }
+
         try {
-            String cadena = "jdbc:sqlserver://" + ip + ":" + puerto + ";" +
-                            "databaseName=" + bd + ";" +
-                            "encrypt=true;" +
-                            "trustServerCertificate=true;";
+            String cadena = "jdbc:sqlserver://" + ip + ":" + puerto + ";"
+                    + "databaseName=" + bd + ";"
+                    + "encrypt=true;"
+                    + "trustServerCertificate=true;";
 
             conectar = DriverManager.getConnection(cadena, usuario, contraseña);
-            JOptionPane.showMessageDialog(null, "✅ Conectado a la base de datos");
+
+            if (!yaConectado) {
+                JOptionPane.showMessageDialog(null, "✅ Conectado a la base de datos");
+                yaConectado = true;
+            }
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "❌ Error al conectar a la base de datos:\n" + e.toString());
         }
+
         return conectar;
     }
 }
