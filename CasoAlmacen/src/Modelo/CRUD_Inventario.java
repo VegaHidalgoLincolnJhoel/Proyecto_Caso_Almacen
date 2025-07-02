@@ -241,14 +241,14 @@ public class CRUD_Inventario {
         }
     }
 
-    public void actualizarRegistro(String nombreTabla, JTextField txtID, JTextField txtNombre, JTextField txtStock, JTextField txtPrecioUnidad, JTextField txtCategoria) {
+    public void actualizarRegistro(String nombreTabla, JTextField jTextID, JTextField jTextNombre, JTextField jTextStock, JTextField jTextPrecioUnid, JTextField jTextCategoria) {
     Conexion link = new Conexion();
 
-    String id = txtID.getText();
-    String nombre = txtNombre.getText();
-    String stock = txtStock.getText();
-    String precioUnidad = txtPrecioUnidad.getText();
-    String categoria = txtCategoria.getText();
+    String id = jTextID.getText();
+    String nombre = jTextNombre.getText();
+    String stock = jTextStock.getText();
+    String precioUnidad = jTextPrecioUnid.getText();
+    String categoria = jTextCategoria.getText();
 
     // Validación básica
     if (nombreTabla == null || nombreTabla.isEmpty()) {
