@@ -4,8 +4,7 @@
  */
 package Modelo;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -156,7 +155,7 @@ public class CRUD_Inventario {
         paramTablaMostrar.setModel(modelo);
         //añadir los elementos del menu
 
-        sql = "select * from Alimento";
+        sql = "select * from Alimentos";
 
         String[] datos = new String[5];
 
@@ -241,35 +240,161 @@ public class CRUD_Inventario {
         }
     }
 
-    public void actualizarRegistro(String nombreTabla, JTextField jTextID, JTextField jTextNombre, JTextField jTextStock, JTextField jTextPrecioUnid, JTextField jTextCategoria) {
-    Conexion link = new Conexion();
+    public boolean actualizarRegistro(String nombreTabla, JTextField jTextID, JTextField jTextNombre, JTextField jTextStock, JTextField jTextPrecioUnid, JTextField jTextCategoria) {
+        Conexion link = new Conexion();
 
-    String id = jTextID.getText();
-    String nombre = jTextNombre.getText();
-    String stock = jTextStock.getText();
-    String precioUnidad = jTextPrecioUnid.getText();
-    String categoria = jTextCategoria.getText();
+        String id = jTextID.getText();
+        String nombre = jTextNombre.getText();
+        String stock = jTextStock.getText();
+        String precioUnidad = jTextPrecioUnid.getText();
+        String categoria = jTextCategoria.getText();
 
-    // Validación básica
-    if (nombreTabla == null || nombreTabla.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "❌ No se ha seleccionado ninguna tabla.");
-        return;
+        // Validación básica
+        if (nombreTabla == null || nombreTabla.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "❌ No se ha seleccionado ninguna tabla.");
+        }
+
+        String campoID = "id_" + nombreTabla.toLowerCase();
+
+        // Determinar el campo ID según la tabla
+        switch (nombreTabla.toLowerCase()) {
+            case "ropa":
+                campoID = "id_ropa";
+                break;
+            case "alimentos":
+                campoID = "id_alimento";
+                break;
+            case "deporte":
+                campoID = "id_deporte";
+                break;
+            case "tecnologia":
+                campoID = "id_electronico";
+                break;
+            case "limpieza":
+                campoID = "id_limpieza";
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "❌ Tabla no reconocida: " + nombreTabla);
+        }
+
+        // Consulta SQL personalizada
+        String sql = "UPDATE " + nombreTabla + " SET "
+                + "nombre = '" + nombre + "', "
+                + "stock = '" + stock + "', "
+                + "precio_unitario = '" + precioUnidad + "', "
+                + "id_categoria = '" + categoria + "' "
+                + "WHERE " + campoID + " = '" + id + "'";
+
+        try {
+            Statement st = link.establecerConexion().createStatement();
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "✅ Registro actualizado correctamente en la tabla " + nombreTabla);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "❌ Error al actualizar el registro:\n" + e.toString());
+        }
+        return false;
     }
 
-    String sql = "UPDATE " + nombreTabla + " SET " +
-                 "nombre = '" + nombre + "', " +
-                 "stock = '" + stock + "', " +
-                 "precioUnidad = '" + precioUnidad + "', " +
-                 "categoria = '" + categoria + "' " +
-                 "WHERE id = '" + id + "'";
+    public void InsertarRegistro(String nombreTabla, JTextField jTextID, JTextField jTextNombre,
+            JTextField jTextStock, JTextField jTextPrecioUnid, JTextField jTextCategoria) {
+        Conexion link = new Conexion();
 
-    try {
-        Statement st = link.establecerConexion().createStatement();
-        st.executeUpdate(sql);
-        JOptionPane.showMessageDialog(null, "✅ Registro actualizado correctamente en la tabla " + nombreTabla);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "❌ Error al actualizar el registro:\n" + e.toString());
+        String id = jTextID.getText();
+        String nombre = jTextNombre.getText();
+        String stock = jTextStock.getText();
+        String precioUnidad = jTextPrecioUnid.getText();
+        String categoria = jTextCategoria.getText();
+
+        if (nombreTabla == null || nombreTabla.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "❌ No se ha seleccionado ninguna tabla.");
+            return;
+        }
+
+        // Determinar el campo ID según la tabla
+        String campoID = "id_" + nombreTabla.toLowerCase();
+
+        switch (nombreTabla.toLowerCase()) {
+            case "ropa":
+                campoID = "id_ropa";
+                break;
+            case "alimentos":
+                campoID = "id_alimento";
+                break;
+            case "deporte":
+                campoID = "id_deporte";
+                break;
+            case "tecnologia":
+                campoID = "id_electronico";
+                break;
+            case "limpieza":
+                campoID = "id_limpieza";
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "❌ Tabla no reconocida: " + nombreTabla);
+        }
+        // Armar sentencia SQL con placeholders (?)
+        String sql = "INSERT INTO " + nombreTabla
+                + " (" + campoID + ", nombre, stock, precio_unitario, id_categoria) VALUES (?, ?, ?, ?, ?)";
+
+        try {
+            PreparedStatement pst = link.establecerConexion().prepareStatement(sql);
+            pst.setInt(1, Integer.parseInt(id));            // id
+            pst.setString(2, nombre);                       // nombre
+            pst.setInt(3, Integer.parseInt(stock));         // stock
+            pst.setDouble(4, Double.parseDouble(precioUnidad)); // precio_unidad
+            pst.setString(5, categoria);                    // categoria
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "✅ Registro insertado correctamente en la tabla " + nombreTabla);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "❌ Error al insertar:\n" + e.toString());
+        }
     }
-}
+    
+        public boolean EliminarRegistro(String nombreTabla, JTextField jTextID) {
+        Conexion link = new Conexion();
+
+        String id = jTextID.getText();
+
+        // Validación básica
+        if (nombreTabla == null || nombreTabla.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "❌ No se ha seleccionado ninguna tabla.");
+        }
+
+        String campoID = "id_" + nombreTabla.toLowerCase();
+
+        // Determinar el campo ID según la tabla
+        switch (nombreTabla.toLowerCase()) {
+            case "ropa":
+                campoID = "id_ropa";
+                break;
+            case "alimentos":
+                campoID = "id_alimento";
+                break;
+            case "deporte":
+                campoID = "id_deporte";
+                break;
+            case "tecnologia":
+                campoID = "id_electronico";
+                break;
+            case "limpieza":
+                campoID = "id_limpieza";
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "❌ Tabla no reconocida: " + nombreTabla);
+        }
+
+        // Consulta SQL personalizada
+        String sql = "DELETE FROM " + nombreTabla + "WHERE " + campoID + " = '" + id + "'";
+
+        try {
+            Statement st = link.establecerConexion().createStatement();
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "✅ Registro Eliminado correctamente en la tabla " + nombreTabla);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "❌ Error al Eliminar el registro:\n" + e.toString());
+        }
+        return false;
+    }
 
 }
