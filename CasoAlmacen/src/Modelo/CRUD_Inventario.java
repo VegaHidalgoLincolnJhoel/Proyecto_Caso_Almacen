@@ -114,7 +114,7 @@ public class CRUD_Inventario {
         paramTablaMostrar.setModel(modelo);
         //añadir los elementos del menu
 
-        sql = "select * from Electronico";
+        sql = "select * from Tecnologia";
 
         String[] datos = new String[5];
 

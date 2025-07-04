@@ -517,6 +517,7 @@ public class ModificarInventario extends javax.swing.JFrame {
         jButtonLimpiar.setEnabled(false);
         jButtonEliminar.setEnabled(false);
         jButtonGuardar.setEnabled(false);
+        jButtonAñadir.setEnabled(false);
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
