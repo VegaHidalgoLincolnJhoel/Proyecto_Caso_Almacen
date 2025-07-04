@@ -41,9 +41,9 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBoxCategorias" min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelID" min="-2" max="-2" attributes="0"/>
@@ -58,8 +58,7 @@
                                   <Component id="jTextStock" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabelCategoria" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jTextCategoria" min="-2" pref="240" max="-2" attributes="0"/>
@@ -284,7 +283,7 @@
                       <Component id="jButtonGuardar" alignment="1" max="32767" attributes="0"/>
                       <Component id="jButtonLimpiar" alignment="0" max="32767" attributes="0"/>
                       <Component id="jButtonEliminar" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButtonRegresar" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonSalir" alignment="0" max="32767" attributes="0"/>
                       <Component id="jButtonAñadir" alignment="0" max="32767" attributes="0"/>
                       <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                       <Component id="jButtonExportar" alignment="0" max="32767" attributes="0"/>
@@ -322,7 +321,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonExportar" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButtonRegresar" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="jButtonSalir" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -382,12 +381,12 @@
             <Property name="text" type="java.lang.String" value="Salida"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonRegresar">
+        <Component class="javax.swing.JButton" name="jButtonSalir">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Regresar"/>
+            <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRegresarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalirActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
