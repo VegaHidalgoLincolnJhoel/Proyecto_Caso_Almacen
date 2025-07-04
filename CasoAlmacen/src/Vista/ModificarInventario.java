@@ -455,23 +455,6 @@ public class ModificarInventario extends javax.swing.JFrame {
         jTextStock.setText("");
         jTextPrecioUnid.setText("");
         jTextCategoria.setText("");
-
-        // Desactivar campos
-        TablaMostrar.setEnabled(false);
-        TablaMostrar.clearSelection();
-        jTextID.setEditable(false);
-        jTextID.setEnabled(false);
-        jTextNombre.setEditable(false);
-        jTextNombre.setEnabled(false);
-        jTextStock.setEditable(false);
-        jTextStock.setEnabled(false);
-        jTextPrecioUnid.setEditable(false);
-        jTextPrecioUnid.setEnabled(false);
-        jTextCategoria.setEditable(false);
-        jTextCategoria.setEnabled(false);
-        jButtonLimpiar.setEnabled(false);
-        jButtonEliminar.setEnabled(false);
-        jButtonGuardar.setEnabled(false);
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportarActionPerformed

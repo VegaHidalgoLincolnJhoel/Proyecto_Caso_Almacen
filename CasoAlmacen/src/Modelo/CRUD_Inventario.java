@@ -350,20 +350,20 @@ public class CRUD_Inventario {
             JOptionPane.showMessageDialog(null, "❌ Error al insertar:\n" + e.toString());
         }
     }
-    
-        public boolean EliminarRegistro(String nombreTabla, JTextField jTextID) {
+
+    public boolean EliminarRegistro(String nombreTabla, JTextField jTextID) {
         Conexion link = new Conexion();
 
-        String id = jTextID.getText();
+        String id = jTextID.getText().trim();
 
         // Validación básica
         if (nombreTabla == null || nombreTabla.isEmpty()) {
             JOptionPane.showMessageDialog(null, "❌ No se ha seleccionado ninguna tabla.");
+            return false;
         }
 
         String campoID = "id_" + nombreTabla.toLowerCase();
 
-        // Determinar el campo ID según la tabla
         switch (nombreTabla.toLowerCase()) {
             case "ropa":
                 campoID = "id_ropa";
@@ -382,19 +382,26 @@ public class CRUD_Inventario {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "❌ Tabla no reconocida: " + nombreTabla);
+                return false;
         }
 
-        // Consulta SQL personalizada
-        String sql = "DELETE FROM " + nombreTabla + "WHERE " + campoID + " = '" + id + "'";
+        String sql = "DELETE FROM " + nombreTabla + " WHERE " + campoID + " = '" + id + "'";
 
         try {
             Statement st = link.establecerConexion().createStatement();
-            st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "✅ Registro Eliminado correctamente en la tabla " + nombreTabla);
+            int filas = st.executeUpdate(sql);
+
+            if (filas > 0) {
+                JOptionPane.showMessageDialog(null, "✅ Registro eliminado correctamente de la tabla " + nombreTabla);
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "⚠️ No se encontró el ID especificado.");
+                return false;
+            }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "❌ Error al Eliminar el registro:\n" + e.toString());
+            JOptionPane.showMessageDialog(null, "❌ Error al eliminar el registro:\n" + e.toString());
+            return false;
         }
-        return false;
     }
 
 }
