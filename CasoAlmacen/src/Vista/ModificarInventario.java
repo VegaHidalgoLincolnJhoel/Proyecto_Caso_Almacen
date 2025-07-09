@@ -6,6 +6,8 @@ package Vista;
 
 import Modelo.CRUD_Inventario;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -132,10 +134,7 @@ public class ModificarInventario extends javax.swing.JFrame {
 
         TablaMostrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
 
@@ -346,7 +345,7 @@ public class ModificarInventario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextStockActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void TablaMostrarAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_TablaMostrarAncestorAdded
@@ -455,8 +454,11 @@ public class ModificarInventario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportarActionPerformed
-        VentanaReporte ventana = new VentanaReporte();
-        ventana.setVisible(true);
+    javax.swing.table.TableModel modelo = TablaMostrar.getModel();
+    VentanaReporte ventana = new VentanaReporte(modelo);
+    ventana.setVisible(true);
+
+
     }//GEN-LAST:event_jButtonExportarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
