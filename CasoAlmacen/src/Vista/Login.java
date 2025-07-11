@@ -28,59 +28,116 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jUsuario = new javax.swing.JLabel();
+        jContraseña = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        jButtonLogin = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         txtContraseña = new javax.swing.JPasswordField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jMarca = new javax.swing.JLabel();
+        jLogo = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
+        jMiniLogo = new javax.swing.JLabel();
+        jTitulo = new javax.swing.JLabel();
+        jButtonLogin = new javax.swing.JButton();
+        jPanelFondo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login - StockMaster");
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Usuario");
+        jUsuario.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jUsuario.setText("Usuario");
+        getContentPane().add(jUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
-        jLabel2.setText("Contraseña");
+        jContraseña.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        jContraseña.setText("Contraseña");
+        getContentPane().add(jContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        jButtonLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtUsuario.setEditable(false);
+        txtUsuario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtUsuario.setText("Ingresar nombre de usuario");
+        txtUsuario.setBorder(null);
+        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtUsuarioMouseClicked(evt);
+            }
+        });
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 175, 300, 20));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 300, -1));
+
+        txtContraseña.setEditable(false);
+        txtContraseña.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtContraseña.setText("Ingresar Contraseña");
+        txtContraseña.setBorder(null);
+        txtContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtContraseñaMouseClicked(evt);
+            }
+        });
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 255, 300, 20));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 300, 10));
+
+        jMarca.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jMarca.setForeground(new java.awt.Color(255, 255, 255));
+        jMarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMarca.setText("StockMaster");
+        jMarca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 210, -1));
+
+        jLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logistic icon.png"))); // NOI18N
+        jLogo.setToolTipText("");
+        jLogo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 210, 80));
+
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logistic background.png"))); // NOI18N
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, 440));
+
+        jMiniLogo.setFont(new java.awt.Font("Roboto Medium", 1, 12)); // NOI18N
+        jMiniLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMiniLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logistic icon mini.png"))); // NOI18N
+        jMiniLogo.setText("LOGIN");
+        getContentPane().add(jMiniLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        jTitulo.setFont(new java.awt.Font("Roboto Medium", 1, 24)); // NOI18N
+        jTitulo.setText("INICIAR SESIÓN");
+        getContentPane().add(jTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        jButtonLogin.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonLogin.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jButtonLogin.setForeground(new java.awt.Color(51, 51, 51));
         jButtonLogin.setText("Login");
+        jButtonLogin.setBorder(null);
+        jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLoginActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 94, 36));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtUsuario)
-                        .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
+        jPanelFondo.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelFondo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelFondoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jPanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 440));
 
         pack();
         setLocationRelativeTo(null);
@@ -100,6 +157,37 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "❌ Credenciales incorrectas");
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaActionPerformed
+
+    private void txtUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMouseClicked
+        txtUsuario.setText("");
+        txtUsuario.setEditable(true);
+        if (txtUsuario.getText().isEmpty()) {
+            txtContraseña.setText("Ingresar Contraseña");
+        }
+    }//GEN-LAST:event_txtUsuarioMouseClicked
+
+    private void jPanelFondoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFondoMouseClicked
+        if (txtUsuario.getText().isEmpty() && txtContraseña.getText().isEmpty()) {
+            txtUsuario.setText("Ingresar nombre de usuario");
+            txtContraseña.setText("Ingresar Contraseña");
+        }
+    }//GEN-LAST:event_jPanelFondoMouseClicked
+
+    private void txtContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMouseClicked
+        txtContraseña.setText("");
+        txtContraseña.setEditable(true);
+        if (txtUsuario.getText().isEmpty()) {
+            txtUsuario.setText("Ingresar nombre de usuario");
+        }
+    }//GEN-LAST:event_txtContraseñaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -137,9 +225,17 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JButton jButtonLogin;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jContraseña;
+    private javax.swing.JLabel jLogo;
+    private javax.swing.JLabel jMarca;
+    private javax.swing.JLabel jMiniLogo;
+    private javax.swing.JPanel jPanelFondo;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel jTitulo;
+    private javax.swing.JLabel jUsuario;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

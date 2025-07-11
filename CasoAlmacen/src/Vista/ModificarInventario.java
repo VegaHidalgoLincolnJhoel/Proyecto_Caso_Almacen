@@ -31,18 +31,20 @@ public class ModificarInventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabelID = new javax.swing.JLabel();
+        jComboBoxCategorias = new javax.swing.JComboBox<>();
+        jMiniLogo = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jLabelStock = new javax.swing.JLabel();
         jLabelPriceUnidad = new javax.swing.JLabel();
         jLabelCategoria = new javax.swing.JLabel();
-        jComboBoxCategorias = new javax.swing.JComboBox<>();
-        jTextStock = new javax.swing.JTextField();
+        jTextID = new javax.swing.JTextField();
         jTextNombre = new javax.swing.JTextField();
+        jTextStock = new javax.swing.JTextField();
         jTextPrecioUnid = new javax.swing.JTextField();
         jTextCategoria = new javax.swing.JTextField();
-        jTextID = new javax.swing.JTextField();
+        jLabelID = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaMostrar = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -58,80 +60,117 @@ public class ModificarInventario extends javax.swing.JFrame {
         jButtonAñadir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestor Inventario");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusCycleRoot(false);
-        setSize(new java.awt.Dimension(0, 0));
+        setMinimumSize(getPreferredSize());
+        setPreferredSize(new java.awt.Dimension(910, 550));
+        setResizable(false);
+        setSize(new java.awt.Dimension(910, 510));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(910, 510));
+        jPanel1.setPreferredSize(new java.awt.Dimension(910, 510));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel1.setText("Selecciona una tabla a mostrar");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, 36));
 
-        jLabelID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabelID.setText("ID");
-        jLabelID.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelID.setFocusCycleRoot(true);
-        jLabelID.setFocusable(false);
-        jLabelID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabelNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabelNombre.setText("Nombre");
-        jLabelNombre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabelStock.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabelStock.setText("Stock");
-        jLabelStock.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabelPriceUnidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabelPriceUnidad.setText("Precio/Unidad");
-        jLabelPriceUnidad.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabelCategoria.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabelCategoria.setText("Categoria");
-        jLabelCategoria.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
+        jComboBoxCategorias.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jComboBoxCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar Tabla--", "Ropa", "Alimentos", "Deporte", "Tecnologia", "Limpieza" }));
         jComboBoxCategorias.setToolTipText("Selecciona una categoría para mostrar su tabla");
+        jComboBoxCategorias.setBorder(null);
+        jComboBoxCategorias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCategoriasActionPerformed(evt);
             }
         });
+        jPanel1.add(jComboBoxCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 170, -1));
 
-        jTextStock.setEditable(false);
-        jTextStock.setEnabled(false);
-        jTextStock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextStockActionPerformed(evt);
-            }
-        });
+        jMiniLogo.setFont(new java.awt.Font("Roboto Medium", 1, 12)); // NOI18N
+        jMiniLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMiniLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logistic icon mini.png"))); // NOI18N
+        jMiniLogo.setText("Gestor Inventario");
+        jPanel1.add(jMiniLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 30));
 
-        jTextNombre.setEditable(false);
-        jTextNombre.setEnabled(false);
-        jTextNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextNombreActionPerformed(evt);
-            }
-        });
+        jLabelNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabelNombre.setText("Nombre");
+        jLabelNombre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, -1, -1));
 
-        jTextPrecioUnid.setEditable(false);
-        jTextPrecioUnid.setEnabled(false);
-        jTextPrecioUnid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextPrecioUnidActionPerformed(evt);
-            }
-        });
+        jLabelStock.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabelStock.setText("Stock");
+        jLabelStock.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabelStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
 
-        jTextCategoria.setEditable(false);
-        jTextCategoria.setEnabled(false);
+        jLabelPriceUnidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabelPriceUnidad.setText("Precio/Unidad");
+        jLabelPriceUnidad.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabelPriceUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
+
+        jLabelCategoria.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabelCategoria.setText("Categoria");
+        jLabelCategoria.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabelCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
 
         jTextID.setEditable(false);
+        jTextID.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTextID.setEnabled(false);
         jTextID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextIDActionPerformed(evt);
             }
         });
+        jPanel1.add(jTextID, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 240, -1));
 
+        jTextNombre.setEditable(false);
+        jTextNombre.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextNombre.setEnabled(false);
+        jTextNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextNombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 240, -1));
+
+        jTextStock.setEditable(false);
+        jTextStock.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextStock.setEnabled(false);
+        jTextStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextStockActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 240, -1));
+
+        jTextPrecioUnid.setEditable(false);
+        jTextPrecioUnid.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextPrecioUnid.setEnabled(false);
+        jTextPrecioUnid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextPrecioUnidActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextPrecioUnid, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 240, -1));
+
+        jTextCategoria.setEditable(false);
+        jTextCategoria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextCategoria.setEnabled(false);
+        jPanel1.add(jTextCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 240, -1));
+
+        jLabelID.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabelID.setText("ID");
+        jLabelID.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelID.setFocusCycleRoot(true);
+        jLabelID.setFocusable(false);
+        jLabelID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabelID, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, -1, -1));
+
+        TablaMostrar.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         TablaMostrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -157,16 +196,22 @@ public class ModificarInventario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TablaMostrar);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 694, 250));
+
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
+        jButtonExportar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jButtonExportar.setText("Exportar");
+        jButtonExportar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExportarActionPerformed(evt);
             }
         });
 
+        jButtonEliminar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonEliminar.setEnabled(false);
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +219,9 @@ public class ModificarInventario extends javax.swing.JFrame {
             }
         });
 
+        jButtonLimpiar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jButtonLimpiar.setText("Limpiar");
+        jButtonLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLimpiar.setEnabled(false);
         jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,14 +229,18 @@ public class ModificarInventario extends javax.swing.JFrame {
             }
         });
 
+        jButtonActualizar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jButtonActualizar.setText("Actualizar");
+        jButtonActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonActualizarActionPerformed(evt);
             }
         });
 
+        jButtonGuardar.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jButtonGuardar.setText("Guardar");
+        jButtonGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonGuardar.setEnabled(false);
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,18 +248,24 @@ public class ModificarInventario extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 12)); // NOI18N
         jLabel2.setText("Operaciones");
 
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jLabel3.setText("Salida");
 
+        jButtonSalir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jButtonSalir.setText("Salir");
+        jButtonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalirActionPerformed(evt);
             }
         });
 
+        jButtonAñadir.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
         jButtonAñadir.setText("Añadir");
+        jButtonAñadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonAñadir.setEnabled(false);
         jButtonAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,80 +316,16 @@ public class ModificarInventario extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jComboBoxCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelNombre)
-                                    .addComponent(jLabelID)
-                                    .addComponent(jLabelStock)
-                                    .addComponent(jLabelPriceUnidad))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextPrecioUnid, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelCategoria)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelID)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNombre))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelStock)
-                    .addComponent(jComboBoxCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextPrecioUnid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelPriceUnidad))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCategoria))
-                .addGap(18, 24, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
-        );
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, 480));
 
-        setSize(new java.awt.Dimension(927, 504));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
+
+        setSize(new java.awt.Dimension(926, 544));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -619,6 +612,8 @@ public class ModificarInventario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelPriceUnidad;
     private javax.swing.JLabel jLabelStock;
+    private javax.swing.JLabel jMiniLogo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
