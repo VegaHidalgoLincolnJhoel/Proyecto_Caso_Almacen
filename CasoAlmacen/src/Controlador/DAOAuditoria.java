@@ -22,7 +22,7 @@ public class DAOAuditoria {
     ResultSet rs;
 
     public boolean insertar(AuditoriaMovimiento c) {
-        String SQL = "insert into AuditoriaMovimientos (producto,tipo_movimiento) VALUES (?,?)";
+        String SQL = "insert into AuditoriaMovimientos (Categoria ,tipo_de_movimiento) VALUES (?,?)";
         try {
             cn = con.establecerConexion();
             stmt = cn.prepareStatement(SQL);
