@@ -10,8 +10,8 @@ public class Conexion {
     private static Connection conectar = null;
     private static boolean yaConectado = false;
 
-    private final String usuario = "admin";
-    private final String contraseña = "root2";
+    private final String usuario = "Sofia sa";
+    private final String contraseña = "1234567";
     private final String bd = "Inventario";
     private final String ip = "localhost";
     private final String puerto = "1433";

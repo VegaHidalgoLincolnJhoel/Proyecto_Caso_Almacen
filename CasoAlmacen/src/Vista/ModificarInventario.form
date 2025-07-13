@@ -382,7 +382,7 @@
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonExportar" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace pref="105" max="32767" attributes="0"/>
+                      <EmptySpace pref="103" max="32767" attributes="0"/>
                       <Component id="jButtonSalir" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>

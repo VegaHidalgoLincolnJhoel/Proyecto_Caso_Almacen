@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.DAOAuditoria;
+import Modelo.AuditoriaMovimiento;
 import Modelo.CRUD_Inventario;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,6 +20,9 @@ public class ModificarInventario extends javax.swing.JFrame {
     /**
      * Creates new form InventarioInsertar
      */
+    AuditoriaMovimiento audi = new AuditoriaMovimiento();
+    DAOAuditoria dao = new DAOAuditoria();
+
     public ModificarInventario() {
         initComponents();
     }
@@ -401,6 +406,9 @@ public class ModificarInventario extends javax.swing.JFrame {
         jButtonEliminar.setEnabled(true);
         jButtonGuardar.setEnabled(true);
         jButtonAñadir.setEnabled(true);
+        registrarAuditoria("actualizar");
+
+
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
@@ -444,12 +452,14 @@ public class ModificarInventario extends javax.swing.JFrame {
         jTextStock.setText("");
         jTextPrecioUnid.setText("");
         jTextCategoria.setText("");
+
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportarActionPerformed
-    javax.swing.table.TableModel modelo = TablaMostrar.getModel();
-    VentanaReporte ventana = new VentanaReporte(modelo);
-    ventana.setVisible(true);
+        javax.swing.table.TableModel modelo = TablaMostrar.getModel();
+        VentanaReporte ventana = new VentanaReporte(modelo);
+        ventana.setVisible(true);
+        registrarAuditoria("exportar");
 
 
     }//GEN-LAST:event_jButtonExportarActionPerformed
@@ -513,6 +523,8 @@ public class ModificarInventario extends javax.swing.JFrame {
         jButtonEliminar.setEnabled(false);
         jButtonGuardar.setEnabled(false);
         jButtonAñadir.setEnabled(false);
+
+        registrarAuditoria("guardar");
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
@@ -521,6 +533,9 @@ public class ModificarInventario extends javax.swing.JFrame {
         jTextStock.setText("");
         jTextPrecioUnid.setText("");
         jTextCategoria.setText("");
+
+        registrarAuditoria("limpiar");
+
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     private void jButtonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirActionPerformed
@@ -552,6 +567,8 @@ public class ModificarInventario extends javax.swing.JFrame {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Categoría no reconocida");
+                registrarAuditoria("añadir");
+
         }
     }//GEN-LAST:event_jButtonAñadirActionPerformed
 
@@ -623,4 +640,12 @@ public class ModificarInventario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextPrecioUnid;
     private javax.swing.JTextField jTextStock;
     // End of variables declaration//GEN-END:variables
+
+    private void registrarAuditoria(String accion) {
+
+        audi.setTipo(jComboBoxCategorias.getSelectedItem().toString());
+        audi.setMovimiento(accion);
+        if (dao.insertar(audi)) {
+        }
+    }
 }
