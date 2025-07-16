@@ -262,7 +262,7 @@ public class CRUD_Inventario {
                 campoID = "id_ropa";
                 break;
             case "alimentos":
-                campoID = "id_alimento";
+                campoID = "id_alimentos";
                 break;
             case "deporte":
                 campoID = "id_deporte";
@@ -318,7 +318,7 @@ public class CRUD_Inventario {
                 campoID = "id_ropa";
                 break;
             case "alimentos":
-                campoID = "id_alimento";
+                campoID = "id_alimentos";
                 break;
             case "deporte":
                 campoID = "id_deporte";
@@ -369,7 +369,7 @@ public class CRUD_Inventario {
                 campoID = "id_ropa";
                 break;
             case "alimentos":
-                campoID = "id_alimento";
+                campoID = "id_alimentos";
                 break;
             case "deporte":
                 campoID = "id_deporte";
